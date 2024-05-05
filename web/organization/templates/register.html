@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}
+    Register Page
+{% endblock %}
+
+{% block content %}
+    <body class="text-center">
+        <div class="container">
+            <form method="POST" class="register form-register">
+                {{ form.hidden_tag() }}
+                <h1 class="h3 mb-3 font-weight-normal">
+                    Create Your Account
+                </h1>
+                <br>
+                <div class="register-container row">
+                    <div class="form-line-height col-sm-6">
+                        {{ form.firstname.label() }}
+                        {{ form.firstname(class="form-space form-control", placeholder="First Name") }}
+
+                        {{ form.email_address.label() }}
+                        {{ form.email_address(class="form-space form-control", placeholder="xyz@gmail.com") }}
+
+                        {{ form.dob.label() }}
+                        {{ form.dob(class="form-space form-control") }}
+
+                        {{ form.password1.label() }}
+                        {{ form.password1(class="form-space form-control", placeholder="Password") }}
+                    </div>
+                    <div class="form-line-height col-sm-6">
+                        {{ form.lastname.label() }}
+                        {{ form.lastname(class="form-space form-control", placeholder="Last Name") }}
+
+                        {{ form.mobile_phone.label() }}
+                        {{ form.mobile_phone(class="form-space form-control", placeholder="987654****") }}
+
+                        {{ form.address.label() }}
+                        {{ form.address(class="form-space form-control", placeholder="Address") }}
+
+                        {{ form.password2.label() }}
+                        {{ form.password2(class="form-space form-control", placeholder="Confirm Password") }}
+                    </div>
+                    <div class="col-sm-12">
+                        <br>
+                        <div class="checkbox mb-3">
+                            <h6>Already have an account? </h6>
+                            <a class="btn btn--sm btn-secondary" href="{{ url_for('login_page') }}">Login</a>
+                        </div>
+                        {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
+{% endblock %}

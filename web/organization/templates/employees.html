@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% block title %}
+  Employees Page
+{% endblock %}
+
+{% block content%}
+    <div class="row search-by-container">
+        <form method="post" class="row" action="/search">
+            <div class="co">
+                <div class="select-box">
+                    <div class="selected">
+                        {{form.choice(class="options-container")}}
+                    </div>
+                </div>
+            </div>
+            <div class="boxContainer">
+                <table class="elementsContainer">
+                  <tr>
+                    <td>
+                        {{ form.input(type="search", class="search", placeholder="Search") }}
+                    </td>
+                  <td>
+                    <button type="submit" class="butt material-icons">
+                      <i class="material-icons">search</i>
+                    </button>
+                  </td>
+                  </tr>
+
+                </table>
+            </div>
+
+        </form>
+    </div>
+    {% if current_user.admin == 0 %}
+        <p class="cap" style="margin-left: 15%; margin-top: 25px;">LIST OF ALL EMPLOYEE</p>
+        <div >
+            <table class="table1 table container table-hover table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col" style="width:15%;">Employee ID</th>
+                        <th scope="col" style="width:15%;">First Name</th>
+                        <th scope="col" style="width:15%;">Last Name</th>
+                        <th scope="col" style="width:15%;">E-Mail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for employee in employees %}
+                        <tr>
+                            <td>{{ employee.id }}</td>
+                            <td>{{ employee.first_name }}</td>
+                            <td>{{ employee.last_name }}</td>
+                            <td>{{ employee.email_address }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="row container-fluid">
+            <div class="col-8">
+                <p class="cap" >LIST OF ALL EMPLOYEE</p>
+                <table class="table2 table table-hover table-dark" style="margin-left:20px;">
+                    <thead>
+                        <tr>
+                            <th scope="col">Employee ID</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">E-Mail</th>
+                            <th scope="col">Update</th>
+                            <th scope="col">Delete</th>
+                            <th scope="col" style="width: 16%;"> View Full Profile</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for employee in employees %}
+                        {% include 'includes/delete_modals.html' %}
+                        <tr>
+                            <td>{{ employee.id }}</td>
+                            <td>
+                                <a class="view-by-name" href="/employee/{{ employee.id }}">{{ employee.first_name }}</a>
+                            </td>
+                            <td>
+                                <a class="view-by-name" href="/employee/{{ employee.id }}">{{ employee.last_name }}</a>
+                            </td>
+                            <td>
+                                <a class="view-by-name" href="/employee/{{ employee.id }}">{{ employee.email_address }}</a>
+                            </td>
+                            <td>
+                                <a class="btn btn-outline btn-info" href="/employee/edit/{{ employee.id }}" title="update the information of empid:{{employee.id}}">Update</a>
+<!--                              <button class="btn btn-outline btn-info">Update</button>-->
+                            </td>
+                            <td>
+                              <button class="btn btn-outline btn-danger" data-toggle="modal" data-target="#Modal-ViewEmployee-{{ employee.id }}" title="delete the information of empid:{{employee.id}}">Delete</button>
+                            </td>
+                            <td>
+                                <a class="btn btn-outline btn-success" href="/employee/{{ employee.id }}" title="view information of empid:{{employee.id}}">View Profile</a>
+<!--                              <button class="btn btn-outline btn-success" data-toggle="mo" data-target="#M-{{ employee.id }}">View Profile</button>-->
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-4">
+                {% if view != None %}
+                    <div class="wrapper1">
+                        <div class="info">
+                            <h3>Information</h3>
+                            <div class="info_data">
+                                 <div class="data">
+                                    <h4>Employee ID :</h4>
+                                    <p>{{ view.id }}</p>
+                                 </div>
+                                 <div class="data">
+                                   <h4>Name :</h4>
+                                    <p>{{ view.first_name}} {{ view.last_name}}</p>
+                                 </div>
+                            </div>
+                            <div class="info_data">
+                                 <div class="data">
+                                    <h4>Email :</h4>
+                                    <p>{{ view.email_address }}</p>
+                                 </div>
+                                 <div class="data">
+                                    <h4>Phone No. :</h4>
+                                    <p>{{ view.phone }}</p>
+                                 </div>
+                            </div>
+                            <div class="info_data">
+                                 <div class="data">
+                                   <h4>Address :</h4>
+                                    <p>{{ view.address }}</p>
+                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="bio">
+                            <h3>Biography</h3>
+                            <div class="bio_data">
+                                 <div class="data">
+                                    <h4>D.O.B :</h4>
+                                    <p>{{ view.dob }}</p>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock %}

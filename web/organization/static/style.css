@@ -1,0 +1,236 @@
+/* all body content */
+*
+{
+    justify-content: center;
+}
+body
+{
+    background-color: #212121;
+    color: white
+}
+
+/* register and log in form*/
+.register
+{
+    color:white;
+    margin-top: 4%;
+}
+.form-space
+{
+    margin-bottom: 3%;
+}
+.form-line-height
+{
+     line-height: 0.5;
+}
+.register-container
+{
+    margin: auto;
+    width: 90%;
+}
+
+/* employee page (tabel and searching)*/
+.cap
+{
+    margin-left: 20px;
+    margin-top: 20px;
+
+    text-size: 50px;
+    caption-side: top;
+    font-family:  'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+}
+.login
+{
+    margin-top: 4%;
+    width: 50%;
+}
+
+.table1
+{
+    display: block;
+    overflow-y: auto;
+    max-height: 800px;
+    width: 70%;
+}
+.table1 th
+{
+    padding-left: 40px;
+    position: sticky;
+    top: 0;
+    background: #343A40;
+}
+.table1 td
+{
+    padding-left: 40px;
+}
+
+.table2
+{
+    display: block;
+    overflow-y: auto;
+    background-scroll: black;
+    max-height: 900px;
+    width: 100%;
+}
+
+.table2 th
+{
+    position: sticky;
+    top: 0;
+    border:2px;
+    background: #343A40;
+}
+
+.view-by-name
+{
+    color: white;
+}
+.view-by-name:hover
+{
+    color: #FFA500;
+}
+
+.boxContainer
+{
+    margin-left:10px;
+    width: 50%;
+    height:42px;
+    border:4px solid #2980b9;
+    padding:0px 10px;
+    border-radius:50px;
+}
+
+.elementsContainer
+{
+    width:100%;
+    height:100%;
+    vertical-align:middle;
+}
+
+.search
+{
+    border:None;
+    height:100%;
+    width:100%;
+    padding:0px 5px;
+    border-radius:50px;
+    font-size:18px;
+    font-family:"Nunito";
+    color:white;
+    background: none;
+    font-weight:500;
+}
+
+.search:focus
+{
+    outline:none;
+}
+
+.material-icons{
+    font-size:26;
+    color:#2980b9;
+}
+
+.search-by-container
+{
+    margin:auto;
+    margin-top:2%;
+    //padding-left: 30%;
+}
+
+.select-box
+{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.select-box .options-container
+{
+    background: #2f3640;
+    color: #f5f6fa;
+    width: 100%;
+    font-size: 18px;
+    padding:5px;
+    padding-left: 10px;
+    transition: all 0.4s;
+    border-radius: 8px;
+}
+.butt
+{
+    background: #212121;
+    border: none;
+}
+
+/* details page and view button*/
+.wrapper
+{
+    margin:5%;
+    width: 60%;
+}
+
+.wrapper .info, .wrapper  .bio, .wrapper1 .info, .wrapper1  .bio
+{
+    margin-bottom: 25px;
+}
+
+.wrapper .info h3,
+.wrapper .bio h3,
+.wrapper1 .info h3,
+.wrapper1 .bio h3
+{
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e0e0e0;
+    color: #D3D3D3;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.wrapper .info_data,
+.wrapper .bio_data,
+.wrapper1 .info_data,
+.wrapper1 .bio_data
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper .info_data .data,
+.wrapper .bio_data .data,
+.wrapper1 .info_data .data,
+.wrapper1 .bio_data .data
+{
+    width: 45%;
+    word-wrap: break-word;
+    overflow-wrap: break-word
+}
+
+.wrapper .info_data .data h4,
+.wrapper .bio_data .data h4,
+.wrapper1 .info_data .data h4,
+.wrapper1 .bio_data .data h4
+{
+    color: #778899;
+    margin-bottom: 5px;
+}
+
+.wrapper .info_data .data p,
+.wrapper .bio_data .data p,
+.wrapper1 .info_data .data p,
+.wrapper1 .bio_data .data p
+{
+    font-size: 17px;
+    margin-bottom: 15px;
+    color: #919aa3;
+}
+
+.wrapper1
+{
+    margin:10%;
+    width: 95%;
+}

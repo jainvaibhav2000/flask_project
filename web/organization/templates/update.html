@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}
+    Update Page
+{% endblock %}
+
+{% block content %}
+<style>
+    .container{
+        width : 60%;
+    }
+    .form-register{
+        margin-top: 5%;
+    }
+</style>
+<body class="text-center">
+    <div class="container">
+        <form method="POST" class="form-register" style="color:white">
+            {{ form.hidden_tag() }}
+            <h1 class="h3 mb-3 font-weight-normal">
+                Update Employee Details
+            </h1>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    {{ form.firstname.label() }}
+                    {{ form.firstname(class="form-control", placeholder="First Name", value = employee.first_name) }}
+
+                    {{ form.email_address.label() }}
+                    {{ form.email_address(class="form-control", placeholder="xyz@gmail.com", value = employee.email_address, disabled=True) }}
+
+                    {{ form.dob.label() }}
+                    {{ form.dob(class="form-control", value = employee.dob) }}
+
+                </div>
+                <div class="col-sm-6">
+                    {{ form.lastname.label() }}
+                    {{ form.lastname(class="form-control", placeholder="Last Name", value = employee.last_name) }}
+
+                    {{ form.mobile_phone.label() }}
+                    {{ form.mobile_phone(class="form-control", placeholder="987654****", value = employee.phone) }}
+
+                    {{ form.address.label() }}
+                    {{ form.address(class="form-control", placeholder="Address", value = employee.address) }}
+
+                </div>
+                <div class="col-sm-12">
+                    <br>
+                    {{ form.submit(class="btn btn-lg btn-block btn-primary", value="Update Account") }}
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+{% endblock %}

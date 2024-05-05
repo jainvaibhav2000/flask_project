@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}
+    Detail Page
+{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+        <div class="info">
+            <h3>Information</h3>
+            <div class="info_data">
+                 <div class="data">
+                    <h4>Employee ID :</h4>
+                    <p>{{ current_user.id }}</p>
+                 </div>
+                 <div class="data">
+                    <h4>Name :</h4>
+                    <p>{{ current_user.first_name}} {{ current_user.last_name}}</p>
+                 </div>
+            </div>
+            <div class="info_data">
+                 <div class="data">
+                    <h4>Email :</h4>
+                    <p>{{ current_user.email_address }}</p>
+                 </div>
+                 <div class="data">
+                   <h4>Phone No. :</h4>
+                    <p>{{ current_user.phone }}</p>
+                 </div>
+            </div>
+            <div class="info_data">
+                 <div class="data">
+                   <h4>Address :</h4>
+                    <p>{{ current_user.address }}</p>
+                 </div>
+            </div>
+        </div>
+
+          <div class="bio">
+                <h3>Biography</h3>
+                <div class="bio_data">
+                     <div class="data">
+                        <h4>D.O.B :</h4>
+                        <p>{{ current_user.dob }}</p>
+                     </div>
+                </div>
+          </div>
+
+    </div>
+{% endblock %}
