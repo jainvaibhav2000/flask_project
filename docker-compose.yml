@@ -8,8 +8,14 @@ services:
     environment:
       - DEBUG=1
     networks:
-      - sonar_network
+      - flask_network
+
+  sonarqube:
+    image: sonarqube:lts-community
+    ports:
+      - 9000:9000
+    networks:
+      - flask_network
 
 networks:
-  sonar_network:
-    external: true
+  flask_network:
