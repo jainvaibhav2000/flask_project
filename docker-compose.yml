@@ -10,12 +10,5 @@ services:
     networks:
       - flask_network
 
-  sonarqube:
-    image: sonarqube:lts-community
-    ports:
-      - 9000:9000
-    networks:
-      - flask_network
-
 networks:
   flask_network:
